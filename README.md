@@ -7,7 +7,7 @@
 
 - Create a program that models a simple subway system.
 - The program takes the line and stop that a user is getting on at and the line
-and stop that user is getting off at and prints the total number of stops for the trip.
+and stop that user is getting off at and **prints the total number of stops for the trip**.
 - There are 3 subway lines:
   - The Red line has the following stops: south station, park st, kendall, central, harvard, porter, davis, alewife
   - The Green line has the following stops: haymarket, government center, park st, bolyston, arlington, copley 
