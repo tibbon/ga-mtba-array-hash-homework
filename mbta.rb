@@ -14,8 +14,15 @@ def calculate_position_of_stop(line, stop)
 end
 
 def calculate_number_of_stops(line_on, point_of_departure, line_off, destination)
-  return (calculate_position_of_stop(line_on, point_of_departure) -
-          calculate_position_of_stop(line_off, destination)).abs if line_on == line_off
+  if line_on == line_off
+    return (calculate_position_of_stop(line_on, point_of_departure) -
+            calculate_position_of_stop(line_off, destination)).abs
+  else
+    return (calculate_position_of_stop(line_on,  point_of_departure) -
+            calculate_position_of_stop(line_on,  'park st')).abs + 
+           (calculate_position_of_stop(line_off, 'park st') -
+            calculate_position_of_stop(line_off, destination)).abs
+  end
 end
 
 print "What line are you taking? "
