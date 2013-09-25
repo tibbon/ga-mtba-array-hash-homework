@@ -22,7 +22,10 @@ def calc_stops
 	if home_line == destination_line
 		return (home_line.index(destination) - home_line.index(home)).abs
 	else
-		return MBTA[:home_line]
+		first_leg= (MBTA[:home_line].index(home) - MBTA[:home_line].index("park_st")).abs
+		second_leg = (MBTA[:destination_line].index("park_st") - MBTA[:destination_line].index(destination)).abs)
+	end 
+	stops = first_leg.to_i + second_leg.to_i
 end
 
 #output
