@@ -3,7 +3,7 @@ require 'pry'
 #MBTA hash with keys as symbols of lines and values as arrays of stops
 MBTA = {
 	red_line: ["south_station", "park_st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
-	green_line: ["haymarket_green", "government_center", "park_st", "bolyston", "arlington", "copley"],
+	green_line: ["haymarket_green", "government_center", "park_st", "boylston", "arlington", "copley"],
 	orange_line: ["north_station", "haymarket", "park_st", "state", "downtown_crossing", "chinatown", "back_bay", "forest_hills"]
 }
 
@@ -18,14 +18,23 @@ puts "And which line is that on?"
 home_line = gets.chomp.to_sym
 
 #define function to calc distance
+same_line_stops = 0
+transfer_stops = 0
+
 def calc_stops
 	if home_line == destination_line
-		same_line_stops = (home_line.index(destination) - home_line.index(home)).abs
+		same_line_stops += (home_line.index(destination) - home_line.index(home)).abs
 	else
-		first_leg= (MBTA[:home_line].index(home) - MBTA[:home_line].index("park_st")).abs
-		second_leg = (MBTA[:destination_line].index("park_st") - MBTA[:destination_line].index(destination)).abs
-	transfer_stops = first_leg.to_i + second_leg.to_i
+		first_leg = (MBTA[:home_line].index(home) - MBTA[:home_line].index("park_st")).abs
+		second_leg += (MBTA[:destination_line].index("park_st") - MBTA[:destination_line].index(destination)).abs
+		transfer_stops += first_leg.to_i + second_leg.to_i
 	end
+end
+
+if same_line_stops != 0
+	puts same_line_stops
+else
+	puts transfer_stops
 end
 
 binding.pry
