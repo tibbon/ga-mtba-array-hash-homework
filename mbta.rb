@@ -21,16 +21,19 @@ home_line = gets.chomp.to_sym
 def calc_stops
 	if home_line == destination_line
 		return (home_line.index(destination) - home_line.index(home)).abs
+		same_line_stops = 
 	else
 		first_leg= (MBTA[:home_line].index(home) - MBTA[:home_line].index("park_st")).abs
-		second_leg = (MBTA[:destination_line].index("park_st") - MBTA[:destination_line].index(destination)).abs)
-	end 
-	stops = first_leg.to_i + second_leg.to_i
+		second_leg = (MBTA[:destination_line].index("park_st") - MBTA[:destination_line].index(destination)).abs) 
+	transfer_stops = first_leg.to_i + second_leg.to_i
+	end
 end
 
 #output
-#
-#
+if home_line == destination_line
+	puts 
+puts "You have #{transfer_stops} stops until your destination."
+puts "You have #{first_leg} stops until your transfer at Park St, then #{second_leg} stops until your destination."
 
 
 # if startline == endline
