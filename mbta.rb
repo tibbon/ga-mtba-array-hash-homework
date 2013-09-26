@@ -3,34 +3,32 @@
 #VARS Initial_Stop ; Initial_Line ; Final_Stop ; Final_Line
 #Input
 puts "Enter Initial Stop: "
-Initial_Stop = gets.chomp.to_sym
+Initial_Stop = gets.chomp
 
 puts "Enter Initial Line: "
-Initial_Line = gets.chomp.to_sym
+Initial_Line = gets.chomp
 
 puts "Enter Final Stop: "
-Final_Stop = gets.chomp.to_sym
+Final_Stop = gets.chomp
 
 puts "Enter Final Line: "
-Final_Line = gets.chomp.to_sym
+Final_Line = gets.chomp
 
 #Computation
 
-
 #This Conditional Statement will evaluate which MBTA Line Hash to look at
 
-Mbta_Lines = {
 
-	green = {
+	:green = {
 	    haymarket: 2,
 	    government_center: 1,
 	    park: 0,
 	    bolyston: 1,
 	    arlington: 2,
 	    copley: 3,
-	},
+	}
 
-	red = {
+	:red = {
 	    south_station: 1,
 	    park: 0,
 	    kendall: 1,
@@ -39,9 +37,9 @@ Mbta_Lines = {
 	    porter: 4,
 	    davis: 5,
 	    alewife: 6,
-	},
+	}
 
-	orange = {
+	:orange ={
 	    north_station: 2,
 	    haymarket: 1,
 	    park: 0,
@@ -49,12 +47,14 @@ Mbta_Lines = {
 	    chinatown: 2,
 	    back_bay: 3,
 	    forest_hills: 4,
-	},
+	}
 
-}
+
+Mbta_Lines = {:green, :red, :orange}
 #distance_a will be the first leg of the trip; distance_b will be the second leg of the trip
-distance_a = Mbta_Lines[:Initial_Line][:Initial_Stop]
-distance_b = Mbta_Lines[:Final_Line][:Final_Stop]
+
+start = Mbta_Lines[Initial_Line.to_sym][Initial_Stop.to_sym]
+stop = Mbta_Lines[Final_Line.to_sym][Final_Stop.to_sym]
 #T_lines = [Green_Line, Red_Line, Orange_Line]
 #I will use the distance method to calculate the number of stops each trip will take
 
