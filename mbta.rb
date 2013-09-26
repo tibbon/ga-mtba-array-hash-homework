@@ -11,39 +11,31 @@ MBTA = {
 puts "Welcome to the MBTA! Where are you going?"
 destination = gets.chomp
 puts "What line is that on?"
-destination_line = gets.chomp.to_sym
+destination_line = gets.chomp
 puts "What station are you starting from?"
 home = gets.chomp
 puts "And which line is that on?"
-home_line = gets.chomp.to_sym
+home_line = gets.chomp
 
 #define function to calc distance
 
-def calc_index(line, stop)
-	MBTA[line].index(stop)
+def calc_each_index(line, stop)
+	MBTA[line.to_sym].index(stop)
 end
 
-def calc_stops
-	if home_line == destination_line
-
-		 # home_line[home].index - home_line[destination].index
-
-		same_line_stops = (home_line.index("#{destination}") - home_line.index("#{home}")).abs
-	else
-		first_leg = (MBTA[:home_line].index("#{home}") - MBTA[:home_line].index("park_st")).abs
-		second_leg = (MBTA[:destination_line].index("park_st") - MBTA[:destination_line].index("#{destination}")).abs
-		transfer_stops = first_leg.to_i + second_leg.to_i
-	end
+def same_line(home_line, home, destination_line, destination)
+		return (calc_index(home_line, home) - calc.index(destination_line, destination)).abs
 end
+
+
+def diff_lines(home_line, home, destination_line, destination)
+	return ((calc_index(home_line, home) - calc_index(home_line, "park_st")).abs) + (calc_index(destination_line, "park_st") - (calc.index(destination_line, destination).abs)
+end
+
+if home_line == destination_line
+	same_line(MBTA, home_line)
 
 number_of_stops = calc_stops
-
-
-# if same_line_stops != 0
-# 	puts same_line_stops
-# else
-# 	puts transfer_stops
-# end
 
 	puts "You have #{number_of_stops} stops until your destination."
 
