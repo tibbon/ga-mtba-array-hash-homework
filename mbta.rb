@@ -28,8 +28,8 @@ def diff_line_distance(start_line, start_station, stop_line, stop_station, array
 	stop = array[stop_line.to_sym].index(stop_station).to_i
 	start_park_point = array[start_line.to_sym].index("park_street").to_i
 	stop_park_point = array[stop_line.to_sym].index("park_street").to_i
-	dis_to_park_start = (start - start_park_point).to_i
-	dis_to_park_stop = (stop - stop_park_point).to_i
+	dis_to_park_start = (start - start_park_point).to_i.abs
+	dis_to_park_stop = (stop - stop_park_point).to_i.abs
 	return (dis_to_park_start + dis_to_park_stop)
 end
 
