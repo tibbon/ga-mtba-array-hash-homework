@@ -31,8 +31,6 @@ orange = {
 	'forest hills' => 5
 	}
 
-subway_lines = Hash.new
-
 subway_lines = [
 	red, 
 	green, 
