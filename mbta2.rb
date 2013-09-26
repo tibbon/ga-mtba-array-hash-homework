@@ -25,19 +25,38 @@ subway_lines = {
 			'forest hills']
 }
 
+def find_which_line(subway_lines, station)
+
+	subway_lines.each do |line, arr|
+		if arr.include? station
+		  return line
+		end
+	end
+end
+
+
 # Start interrogation session!
 
 puts "Start Station?"
 station1 = gets.chomp
 
-puts "What line is that on?"
-line1 = gets.chomp
+if station1 == 'haymarket'
+  puts "What line is that on?"
+  line1 = gets.chomp
+else
+  line1 = find_which_line(subway_lines, station1)
+end
 
 puts "End Station?"
 station2 = gets.chomp
 
-puts "What line is that on?"
-line2 = gets.chomp
+if station2 == 'haymarket'
+  puts "What line is that on?"
+  line2 = gets.chomp
+else
+  line2 = find_which_line(subway_lines, station1)
+end
+
 
 # find index numbers for user's stations
 a = subway_lines[line1].index(station1)
