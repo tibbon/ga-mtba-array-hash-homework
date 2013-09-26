@@ -1,90 +1,82 @@
-red_line = [
-	:south_station,
-	:park_st,
-	:kendall,
-	:central,
-	:harvard,
-	:porter,
-	:davis,
-	:alewife
-	]
 
-green_line = [
-	:green_haymarket,
-	:government_center,
-	:park_st,
-	:boylston,
-	:arlington,
-	:copley
-	]
 
-orange_line = [
-	:north_station,
-	:orange_haymarket,
-	:park_st,
-	:state,
-	:downtown_crossing,
-	:chinatown,
-	:back_bay,
-	:forest_hills
-	]
+red = {
+	'south station' => 1,
+	'park st' => 0,
+	'kendall' => 1,
+	'central' => 2,
+	'harvard' => 3,
+	'porter' => 4,
+	'davis' => 5,
+	'alewife' => 6,
+	}
 
-# subway_lines = Hash.new
+green = {
+	'haymarket' => 2,
+	'government center' => 1,
+	'park st' => 0,
+	'boylston' => 1,
+	'arlington' => 2,
+	'copley' => 3
+	}
 
-# subway_lines {
-# 	:red_line => red_line, 
-# 	:green_line => green_line, 
-# 	:orange_line => orange_line
-# }
+orange = {
+	'north station' => 2,
+	'haymarket' => 1,
+	'park st' => 0,
+	'state' => 1,
+	'downtown crossing' => 2,
+	'chinatown' => 3,
+	'back bay' => 4,
+	'forest hills' => 5
+	}
 
-# add a loop to check my arrays and fix the input data
+subway_lines = Hash.new
 
-def get_input()
-	puts "What line are you getting on?"
-	start_line = gets.chomp
-	puts "What stop do you get on?"
-	start_stop = gets.chomp
-	puts "What line are you getting off of?"
-	end_line = gets.chomp
-	puts "What stop are you getting off of?"
-	end_stop = gets.chomp
-	input = [start_line, start_stop, end_line, end_stop]
-	return input
-end
+subway_lines = [
+	red, 
+	green, 
+	orange
+]
 
-def count_stops(line, start, last)
-	total = line[last.index] - line[start.index]
-end
-
-def transfer(line1, start, line2, last)
-	a = count_stops(line1, start, line1[:park_st.index])
-	b = count_stops(line2, line2[:park_st.index], last)
-	total = a + b
-	return total
+def line_finder(string)
+	case string.downcase[0]
+	when 'r'
+		return 0
+	when 'g'
+		return 1
+	when 'o'
+		return 2
+	else
+		puts "Not in our system."
+	end
 end
 
 
+puts "What line are you getting on?"
+answer = gets.chomp
+line = line_finder(answer) 
+# this returns an integer 0 - 2
+start_line = subway_lines[line] 
+# this returns a hash of subway stops
 
-def count_my_stops
+puts "What stop are you getting on?"
+answer = gets.chomp.downcase
+start_stop = start_line[answer] 
+#returns a value: number of stops till park st.
 
-  start_line, start_stop, end_line, end_stop = get_input()
+puts "What line are you getting off?"
+answer = gets.chomp
+line = line_finder(answer) 
+# this returns an integer 0 - 2
+end_line = subway_lines[line] 
+# this returns a hash of subway stops
 
-  if start_line == end_line
-    count_stops(start_line, start_stop, end_stop)
-  else
-    total = transfer(start_line, start_stop, end_line, end_stop)
-    return total
-  end
+puts "What stop are you getting off?"
+answer = gets.chomp.downcase
+end_stop = end_line[answer] 
+#returns a value: number of stops till park st.
 
-end
-
-
-total = count_my_stops
-puts "You will go through #{total} stops."
-
-
-
-
-
-
-
+total_stops = start_stop + end_stop
+puts "You will take #{total_stops} stops on your journey."
+puts "Godspeed!"
