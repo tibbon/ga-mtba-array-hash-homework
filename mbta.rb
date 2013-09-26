@@ -16,18 +16,23 @@ home = gets.chomp
 puts "And which line is that on?"
 home_line = gets.chomp.to_sym
 
+
+def calc_index(line, stop)
+	return MBTA[line].index(stop).to_i
+end
+
 def same_line(home_line, home, destination_line, destination)
-	home_index = MBTA[home_line].index(home).to_i
-	destination_index = MBTA[destination_line].index(destination).to_i
+	home_index = calc_index(home_line, home)
+	destination_index = calc_index(destination_line, destination)
 	return (home_index - destination_index).abs
 end
 
 def diff_lines(home_line, home, destination_line, destination)
-	home_index = MBTA[home_line].index(home).to_i
-	destination_index = MBTA[destination_line].index(destination).to_i
+	home_index = calc_index(home_line, home)
+	destination_index = calc_index(destination_line, destination)
 
-	home_mid_point = MBTA[home_line].index("park_st").to_i
-	destination_mid_point = MBTA[destination_line].index("park_st").to_i
+	home_mid_point = calc_index(home_line, "park_st")
+	destination_mid_point = calc_index(destination_line, "park_st")
 
 	first_leg = (home_index - home_mid_point).abs.to_i
 	second_leg = (destination_index - destination_mid_point).abs.to_i
