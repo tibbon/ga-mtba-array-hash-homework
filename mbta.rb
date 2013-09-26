@@ -1,15 +1,16 @@
 require 'pry'
 
 # Define arrays for all three T lines and put them into a larger array. 
-red = ["South Station", "Park Street", "Kendall", "Central", "Harvard", "Porter", "Davis"]
+red = ["South Station", "Park Street", "Kendall", "Central", "Harvard", "Porter", "Davis", "Alewife"]
 orange = ["North Station", "Haymarket", "Park Street", "State", "Downtown Crossing", "Chinatown", "Back Bay", "Forest Hills"]
 green = ["Copley", "Arlington", "Boylston", "Park Street", "Government Center", "Haymarket"]
 lines = [red, orange, green]
+lines2 = []
 
 # Define constants for Park Street array position on each line. 
-PSRED = 2
-PSORANGE = 3
-PSGREEN = 4
+PSRED = 1
+PSORANGE = 2
+PSGREEN = 3
 
 # MBTA rider inputs. 
 puts "Start line?"
@@ -34,7 +35,7 @@ def sameline(x, y)
 end
 
 #Method to equate the startline with the appropriate array. 
-def arrayselect(startline)
+def startarray(startline)
 	if startline == "Red"
 		return 0
 	elsif startline == "Orange"
@@ -44,59 +45,72 @@ def arrayselect(startline)
 	end
 end
 
-if sameline(startline, endline) == true
-		if arrayselect(startline) == 0
-			array = red
-		elsif 	 arrayselect(startline) ==1
-			array = orange
-		else
-			array = green
-		end
-		start = array.index(startstop)
-		finish = array.index(endstop)
-		trip_length = (start.to_i - finish.to_i).abs
-	puts trip_length
-else
-	puts "multiple line travel code"
+#Method to equate the endline with the appropriate array.
+def endarray(endline)
+	if endline == "Red"
+		return 0
+	elsif endline == "Orange"
+		return 1
+	else
+		return 2
+	end
 end
 
+if sameline(startline, endline) == true
+
+	if startarray(startline) == 0
+		array = red
+	elsif startarray(startline) == 1
+		array = orange
+	else
+		array = green
+	end
+
+	start = array.index(startstop)
+
+	finish = array.index(endstop)
+
+	trip_length = (start.to_i - finish.to_i).abs
+	
+else
+	
+	if startarray(startline) == 0
+		array_1 = red
+		park_1 = PSRED
+	elsif startarray(startline) == 1
+		array_1 = orange
+		park_1 = PSORANGE
+	else
+		array_1 = green
+		park_1 = PSGREEN
+	end
+
+		start = array_1.index(startstop)
+
+		trip_length_1 = (start.to_i - park_1).abs
+
+	if endarray(endline) == 0
+		array_2 = red
+		park_2 = PSRED
+	elsif endarray(endline) == 1
+		array_2 = orange
+		park_2 = PSORANGE
+	else
+		array_2 = green
+		park_2 = PSGREEN
+	end
+
+		finish = array_2.index(endstop)
+
+		trip_length_2 = (park_2 - finish.to_i).abs
+
+	trip_length = trip_length_1 + trip_length_2
+end
+
+puts "Your ride will be #{trip_length} T stops. Happy subway!"
 
 
-# if sameline(startline, endline) == true
-# 	if startline == "Red"
-# 		start = red.index(startstop)
-# 		finish = red.index(endstop)
-# 		trip_length = (start.to_i - finish.to_i).abs
-# 	elsif startline == "Orange"
-# 		start = orange.index(startstop)
-# 		finish = orange.index(endstop)
-# 		trip_length = (start.to_i - finish.to_i).abs
-# 	elsif startline == "Green"
-# 		start = green.index(startstop)
-# 		finish = green.index(endstop)
-# 		trip_length = (start.to_i - finish.to_i).abs
-# 	else
-# 		puts "That line doesn't exist or is a bus."
-# 	end
-# else
-# 	puts "multiple line travel code"
-# end
 
-# def subway(startstop, endstop)
-# 	red = ["South Station", "Park Street", "Kendall", "Central", "Harvard", "Porter", "Davis"]
-# 	start = red.index(startstop)
-# 	finish = red.index(endstop)
-# 	trip_length = (start.to_i - finish.to_i).abs
-# end
-
-# trip_length = subway(startstop, endstop)
-# puts trip_length
-
-# trip_length = subway(1, 3)
-# puts trip_length
-
-# trip_length = subway(6, 2)
-# puts trip_length
 
 
 
