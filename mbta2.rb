@@ -1,21 +1,21 @@
-# Method to determine if the trip is on one line or multiple. 
+# red = ["South Station", "Park Street", "Kendall", "Central", "Harvard", "Porter", "Davis"]
+# orange = ["North Station", "Haymarket", "Park Street", "State", "Downtown Crossing", "Chinatown", "Back Bay", "Forest Hills"]
+# green = ["Copley", "Arlington", "Boylston", "Park Street", "Government Center", "Haymarket"]
+# lines = [red, orange, green]
 
-puts "Start line?"
-startline = gets.chomp
+# puts lines[2][5]
 
-puts "End line?"
-endline = gets.chomp
 
-def sameline (x, y)
-	if x == y
-		return true
+def array(startline)
+	if startline == "Red"
+		return 0
+	elsif startline == "Orange"
+		return 1
 	else
-		return false
+		return 2
 	end
 end
 
-if sameline(startline, endline) == true
-	puts "yay!"
-else
-	puts "boo!"
-end
+puts array("Red")
+puts array("Orange")
+puts array("Green")
