@@ -15,8 +15,6 @@ puts "Which line will you finish on?"
 puts "Which station are you going to?"
 	terminal_station = gets.chomp.downcase
 
-#method to return 
-
 
 #same line method
 def same_line(depart_line, depart_station, terminal_line, terminal_station, array)
