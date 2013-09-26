@@ -1,3 +1,5 @@
+require 'pry'
+
 subway_lines = {
 	'red' => ['south station', 
 			'park st', 
@@ -33,7 +35,7 @@ def find_which_line(subway_lines, station)
 		end
 	end
 end
-
+# binding.pry
 
 # Start interrogation session!
 
@@ -54,22 +56,22 @@ if station2 == 'haymarket'
   puts "What line is that on?"
   line2 = gets.chomp
 else
-  line2 = find_which_line(subway_lines, station1)
+  line2 = find_which_line(subway_lines, station2)
 end
-
+# binding.pry
 
 # find index numbers for user's stations
-a = subway_lines[line1].index(station1)
-b = subway_lines[line2].index(station2)
+station1_index = subway_lines[line1].index(station1)
+station2_index = subway_lines[line2].index(station2)
 
 # find index numbers for transfer station
-park_a = subway_lines[line1].index('park st')
-park_b = subway_lines[line2].index('park st')
+park_line1_index = subway_lines[line1].index('park st')
+park_line2_index = subway_lines[line2].index('park st')
 
 if line1 == line2
-  distance = (a - b).abs
+  distance = (station1_index - station2_index).abs
 else
-  distance = (a - park_a).abs + (b - park_b).abs
+  distance = (station1_index - park_line1_index).abs + (station2_index - park_line2_index).abs
 end
 
 puts "You'll be traveling #{distance} stops on your trip."
