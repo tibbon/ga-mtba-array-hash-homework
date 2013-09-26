@@ -8,19 +8,21 @@ subway_lines = {
 
 
 def a_method(argument)
+	new_array = []
 	if argument == "orange"
-		return subway_lines[:orange]
+		new_array << subway_lines[:orange]
 	elsif argument == "green"
-		return subway_lines[:green]
+		new_array <<  subway_lines[:green]
 	elsif argument == "red"
-		return subway_lines[:red]
+		new_array <<  subway_lines[:red]
 	else
 		return "We don't have that in Boston, try another line."
 	end
+	return new_array
 end 
 
 puts "What subway line will you start your trip on? (organge, green, red)"
-begin_line = gets.chomp.to_sym
+begin_line = gets.chomp.to_s
 
 begin_stops = a_method(begin_line)
 # def get_stops(subway_lines)
