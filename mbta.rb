@@ -17,21 +17,21 @@ puts "And which line is that on?"
 home_line = gets.chomp.to_sym
 
 def same_line(home_line, home, destination_line, destination)
-	return home_index = MBTA[home_line].index(home).to_i
-	return destination_index = MBTA[destination_line].index(destination).to_i
+	home_index = MBTA[home_line].index(home).to_i
+	destination_index = MBTA[destination_line].index(destination).to_i
 	return (home_index - destination_index).abs
 end
 
 def diff_lines(home_line, home, destination_line, destination)
-	return home_index = MBTA[home_line].index(home).to_i
-	return destination_index = MBTA[destination_line].index(destination).to_i
+	home_index = MBTA[home_line].index(home).to_i
+	destination_index = MBTA[destination_line].index(destination).to_i
 
-	return home_mid_point = MBTA[home_line].index("park_st").to_i
-	return destination_mid_point = MBTA[destination_line].index("park_st").to_i
+	home_mid_point = MBTA[home_line].index("park_st").to_i
+	destination_mid_point = MBTA[destination_line].index("park_st").to_i
 
-	return first_leg = (home_index - home_mid_point).abs.to_i
-	return second_leg = (destination_index - destination_mid_point).abs.to_i
-	return first_leg + second_leg
+	first_leg = (home_index - home_mid_point).abs.to_i
+	second_leg = (destination_index - destination_mid_point).abs.to_i
+	first_leg + second_leg
 end
 
 if home_line == destination_line
