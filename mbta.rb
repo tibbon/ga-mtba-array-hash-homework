@@ -1,5 +1,3 @@
-
-
 red = {
 	'south station' => 1,
 	'park st' => 0,
@@ -37,6 +35,12 @@ subway_lines = [
 	orange
 ]
 
+# puts I decided to do this line-finder thing because I can't 
+# access the arrays from inside the method (to look up their names), 
+# and I can't return variable names from inside 
+# the method (and strings "red" don't match to
+# the variable red)
+
 def line_finder(string)
 	case string.downcase[0]
 	when 'r'
@@ -46,7 +50,7 @@ def line_finder(string)
 	when 'o'
 		return 2
 	else
-		puts "Not in our system."
+		return nil
 	end
 end
 
@@ -75,6 +79,11 @@ answer = gets.chomp.downcase
 end_stop = end_line[answer] 
 #returns a value: number of stops till park st.
 
-total_stops = start_stop + end_stop
+if start_line == end_line
+  total_stops = (start_stop - end_stop).abs
+else 
+  total_stops = start_stop + end_stop
+end
+
 puts "You will take #{total_stops} stops on your journey."
 puts "Godspeed!"
