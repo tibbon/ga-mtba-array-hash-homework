@@ -1,9 +1,9 @@
 # Your code goes here
 
 subway_lines = {
-	orange: ["north station", "orange haymarket", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"],
-	green: ["green haymarket", "government center", "park st", "boylston", "arlington", "copley"],
-	red: ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
+	"orange" => ["north station", "orange haymarket", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"],
+	"green" => ["green haymarket", "government center", "park st", "boylston", "arlington", "copley"],
+	"red" => ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
 }
 
 def check_one_or_two_line_trip(start_line, start_station, end_line, end_station)
@@ -16,6 +16,9 @@ def check_one_or_two_line_trip(start_line, start_station, end_line, end_station)
 	end
 end
 
+subway_lines.each_with_index do |color, station|
+	
+
 def one_line_trip(start_line, start_station, end_line, end_station)
 
 end
@@ -24,7 +27,8 @@ def two_line_trip(start_line, start_station, end_line, end_station)
 
 end
 
-puts check_one_or_two_line_trip("orange", "state", "orange", "back bay")
+# puts check_one_or_two_line_trip("orange", "state", "orange", "back bay")
+#puts one_line_trip("orange", "state", "orange", "back bay")
 
 
 ##############THIS IS A METHOD THAT ACTUALLY WORKS--NOT FOR THE RIGHT THING, BUT IT DOES A THING ######################
