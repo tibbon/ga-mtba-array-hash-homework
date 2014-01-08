@@ -2,10 +2,13 @@
 # Your code goes here
 puts ""
 
-# Create subway lines
-red_line = ['South Station', 'Park St.', 'Kendall', 'Central', 'Harvard', 'Porter', 'Davis', 'Alewife']
-green_line = ['Haymarket', 'Government Center', 'Park St.', 'Boyleston', 'Arlington', 'Copley']
-orange_line = ['North Station', 'Haymarket', 'Park St.', 'State', 'Downtown Crossing', 'Chinatown', 'Back Bay', 'Forest Hills']
+
+# Create a hash with subway lines
+mbta = {
+	red_line: ['South Station', 'Park St.', 'Kendall', 'Central', 'Harvard', 'Porter', 'Davis', 'Alewife'],
+	green_line: ['Haymarket', 'Government Center', 'Park St.', 'Boyleston', 'Arlington', 'Copley'],
+	orange_line: ['North Station', 'Haymarket', 'Park St.', 'State', 'Downtown Crossing', 'Chinatown', 'Back Bay', 'Forest Hills']
+}
 
 # Get user input
 def user_input(prompt)
@@ -17,11 +20,11 @@ end
 start_line = user_input("What line are you beginning on? (type Red, Green, or Orange)").capitalize
 case start_line
 when "Green"
-	start_line_array = green_line
+	start_line_array = mbta[:green_line]
 when "Red"
-	start_line_array = red_line
+	start_line_array = mbta[:red_line]
 when "Orange"
-	start_line_array = orange_line
+	start_line_array = mbta[:orange_line]
 else
 	puts "Incorrect subway line. Goodbye"
 	exit
@@ -35,11 +38,11 @@ puts ""
 end_line = user_input("What line are you ending on?").capitalize
 case end_line
 when "Green"
-	end_line_array = green_line
+	end_line_array = mbta[:green_line]
 when "Red"
-	end_line_array = red_line
+	end_line_array = mbta[:red_line]
 when "Orange"
-	end_line_array = orange_line
+	end_line_array = mbta[:orange_line]
 else
 	puts "Incorrect subway line. Goodbye."
 	exit
