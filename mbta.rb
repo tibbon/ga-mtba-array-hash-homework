@@ -1,31 +1,42 @@
-red_line_list = ["alewife", "davis", "porter", "harvard", "central", "kendall", "park st", "south station"]
-orange_line_list = ["north station", "haymarket", "park st", "downtown crossing", "chinatown", "back bay", "forest hills"]
-green_line_list = ["haymarket", "gov't center", "park st", "boylston", "arlington", "copley"]
+# define each subway line as an array of stations
 
-the_subway = {red_line: red_line_list, orange_line: orange_line_list, green_line: green_line_list}
+red_line_array = ["alewife", "davis", "porter", "harvard", "central", "kendall", "park st", "south station"]
+orange_line_array = ["north station", "haymarket", "park st", "downtown crossing", "chinatown", "back bay", "forest hills"]
+green_line_array = ["haymarket", "gov't center", "park st", "boylston", "arlington", "copley"]
 
+# define the subway as a hash, with key = line and value = array of stations on the line
 
+the_subway = {red_line: red_line_array, orange_line: orange_line_array, green_line: green_line_array}
+
+# get user input for the start line
 def input_start_line
 	puts "What line are you starting on? (red, orange, green)"
 	gets.chomp
-	# return input + "_line" # not needed?
 end
 
+# get user input for start station
 def input_start_station
 	puts "What station are you starting at?\n(red line: #{red_line.join(", ")})\n(orange line: #{orange_line.join(", ")})\n(green line: #{green_line.join(", ")})"
 	gets.chomp
 end
 
+# get user input for end line
 def input_end_line
 	puts "What line are you going to? (red, orange, green)"
 	gets.chomp
 end
 
+# get user input for end station
 def input_end_station
 	puts "What station are you getting off at?\n(red line: #{red_line.join(", ")})\n(orange line: #{orange_line.join(", ")})\n(green line: #{green_line.join(", ")})"
 	gets.chomp
 end
 
+# assign user input to variables
+start_line = input_start_line
+start_station = input_start_station
+end_line = input_end_station
+end_station = input_end_station
 
 # GOAL: PRINT TOTAL NUMBER OF STOPS FOR EACH TRIP
 
