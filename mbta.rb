@@ -1,7 +1,5 @@
-
 # Your code goes here
 puts ""
-
 
 # Create a hash with subway lines
 mbta = {
@@ -30,7 +28,7 @@ else
 	exit
 end
 
-start_stop = user_input("What stop do you begin at?")
+start_station = user_input("What stop do you begin at?")
 
 puts ""
 
@@ -48,7 +46,7 @@ else
 	exit
 end
 
-end_stop = user_input("What stop are you ending at?")
+end_station = user_input("What stop are you ending at?")
 
 puts ""
 
@@ -60,7 +58,7 @@ def distance_to_park(subway_stop, subway_line)
 	start_index > park_index ? (start_index - park_index) : (park_index - start_index)
 end
 
-distance = distance_to_park(start_stop, start_line_array) +  distance_to_park(end_stop, end_line_array)
-puts "The distance between #{start_stop} on the #{start_line} Line and #{end_stop} on the #{end_line} Line is #{distance} stops."
+distance = distance_to_park(start_station, start_line_array) +  distance_to_park(end_station, end_line_array)
+puts "The distance between #{start_station} on the #{start_line} Line and #{end_station} on the #{end_line} Line is #{distance} stops."
 
 puts ""
