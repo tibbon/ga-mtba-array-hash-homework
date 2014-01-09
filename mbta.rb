@@ -9,9 +9,19 @@ green_line_array = ["haymarket", "gov't center", "park st", "boylston", "arlingt
 the_subway = {red_line: red_line_array, orange_line: orange_line_array, green_line: green_line_array}
 
 # get user input for the start line
-def input_start_line
+def input_start_line(red_line_array, orange_line_array, green_line_array)
 	puts "What line are you starting on? (red, orange, green)"
-	gets.chomp
+	input = gets.chomp
+
+	# yes, i know i could put this in its own method, but in this case (hah!) i actually think leaving it is more readable
+	case input
+	when "red"
+		red_line_array
+	when "orange"
+		orange_line_array
+	when "green"
+		green_line_array
+	end
 end
 
 # get user input for start station
@@ -21,9 +31,20 @@ def input_start_station(red_line_array, orange_line_array, green_line_array)
 end
 
 # get user input for end line
-def input_end_line
+def input_end_line(red_line_array, orange_line_array, green_line_array)
 	puts "What line are you going to? (red, orange, green)"
-	gets.chomp
+	input = gets.chomp
+
+	# more readable when not in a method
+	case input
+	when "red"
+		red_line_array
+	when "orange"
+		orange_line_array
+	when "green"
+		green_line_array
+	end
+
 end
 
 # get user input for end station
@@ -32,13 +53,42 @@ def input_end_station(red_line_array, orange_line_array, green_line_array)
 	gets.chomp
 end
 
+
 # assign user input to variables
-start_line = input_start_line
+
+start_line_array = input_start_line(red_line_array, orange_line_array, green_line_array)
+
 start_station = input_start_station(red_line_array, orange_line_array, green_line_array)
-end_line = input_end_line
+
+end_line_array = input_end_line(red_line_array, orange_line_array, green_line_array)
+
 end_station = input_end_station(red_line_array, orange_line_array, green_line_array)
 
 # GOAL: PRINT TOTAL NUMBER OF STOPS FOR EACH TRIP
+
+puts ""
+puts "The start line is #{start_line_array}"
+puts "The start station is #{start_station}"
+puts "The array index of the start station is #{start_line_array.index(start_station)}"
+puts ""
+puts "The end line is #{end_line_array}"
+puts "The end station is #{end_station}"
+puts "The array index of the end station is #{end_line_array.index(end_station)}"
+puts ""
+puts "the aend!"
+puts ""
+
+
+# def calculate_number_of_stops(local vars)
+
+# 	if start_line == end_line
+
+
+
+# end
+
+
+
 
 =begin
 
@@ -55,7 +105,7 @@ end
 
 =end
 
-puts start_line.index("start_station")
+
 
 
 
