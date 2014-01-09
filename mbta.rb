@@ -17,34 +17,44 @@ def input(prompt)
 	gets.chomp
 end
 
+def find_index(rails, line, stop)
+	rails[line].index(stop)
+end
+
 #prompt user for input
 starting_line = input('What line are you getting on?').to_sym
 starting_stop = input('What stop are you getting on?')
 
 #find index of input
-start_index = rails[starting_line].index(starting_stop)
+#start_index = rails[starting_line].index(starting_stop)
+start_index = find_index(rails, starting_line, starting_stop)
 
 #prompt more input
 ending_line = input('What line are you getting off?').to_sym
 ending_stop = input('What stop are you getting off?')
 
 #find index of input
-end_index = rails[ending_line].index(ending_stop)
+#end_index = rails[ending_line].index(ending_stop)
+end_index = find_index(rails, ending_line, ending_stop)
 
 #find index of park st for starting line
-start_park = rails[starting_line].index('park st')
+#start_park = rails[starting_line].index('park st')
+start_park = find_index(rails, starting_line, 'park st')
 #find index of park st for ending line
-end_park = rails[ending_line].index('park st')
+#end_park = rails[ending_line].index('park st')
+end_park = find_index(rails, ending_line, 'park st')
+
 
 #Function that applies once we are on the same line. Finds the distance
 #between the starting stop and the end stop
 def line_stops (starting_stop, ending_stop)
-	binding.pry
 	stops = starting_stop - ending_stop
 	stops.abs
 end
 
 
+
+=begin
 def diff_line (starting_num, start_park, end_park, ending_stop)
 
 	stops = 0
@@ -53,7 +63,7 @@ def diff_line (starting_num, start_park, end_park, ending_stop)
 	#stops from park st on line 2
 	stops += line_stops(end_park, ending_stop)
 end
-
+=end
 
 
 if starting_line == ending_line
