@@ -5,9 +5,9 @@ mtba = { red: ["south station", "park st", "kendall", "central", "harvard", "por
 
 def count_stop(b_line, b_stop, e_line, e_stop, name)
 	if b_line == e_line
-		return	(name[b_line.to_sym].index(b_stop) - name[e_line.to_sym].index(e_stop)).abs + 1
+		return	(name[b_line.to_sym].index(b_stop) - name[e_line.to_sym].index(e_stop)).abs
 	else
-		return (name[b_line.to_sym].index(b_stop) - name[b_line.to_sym].index("park st")).abs + (name[e_line.to_sym].index(e_stop) - name[e_line.to_sym].index("park st")).abs + 1
+		return (name[b_line.to_sym].index(b_stop) - name[b_line.to_sym].index("park st")).abs + (name[e_line.to_sym].index(e_stop) - name[e_line.to_sym].index("park st")).abs
 	end
 end
 
