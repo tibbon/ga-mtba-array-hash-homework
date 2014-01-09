@@ -1,6 +1,5 @@
-
 #subway system
-
+require 'pry'
 #user input
 def get_input(prompt)
 	puts prompt
@@ -14,64 +13,29 @@ end_station= get_input("which station on that line will you end on?")
 
 #calculation
 # all three intersect at park st
-mbta =Hash.new
+mbta = Hash.new
+
+mbta = {
+  red_line: ["south station", "park st", "kendall", "central", "harvard", "porter", "davis", "alewife"],
+  green_line: ["haymarket/green", "government center", "park st", "boylston", "arlington", "copley"],
+  orange_line: ["north station", "haymarket/orange", "park street", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
+}
 
 
-	red_line = [
-		"south station",
-		"park st",
-		"kendall",
-		"central",
-		"harvard",
-		"porter",
-		"davis",
-		"alewife"]
+def distance(start_line, start_station, end_line, end_station, hash)
+#binding.pry
+  first_station = hash[start_line.to_sym].index(start_station).to_i
+  end_line_park_index = hash[end_line.to_sym].index("park st").to_i
+	last_station = hash[end_line.to_sym].index(end_station).to_i
 
-	green_line = [
-		"green/haymarket",
-		"government center",
-		"park st",
-		"bolyston",
-		"arlington,
-		copley"]
+  start_to_park = (first_station - end_line_park_index)
+  end_to_park = (last_station - end_line_park_index)
 
-orange_line = [
-	"north station",
-	 "orange/haymarket",
-	 "park st",
-	  "state",
-	  "downtown crossing",
-	  "chinatown",
-	  "back bay",
-	  "forest hills"]
-
-case start_line
-when "red_line"
-	start_line_array = red_line
-when "green_line"
-	start_line_array = green_line
-when "orange_line"
-	start_line_array = orange_line
+  return (start_to_park.abs + end_to_park.abs)
 end
 
-case end_line
-when "red_line"
-	end_line_array = red_line
-when "green_line"
-	end_line_array = green_line
-when "orange_line"
-	end_line_array = orange_line
-end
+result = distance(start_line, start_station, end_line, end_station, mbta)
+puts result
 
-def dist(station, line_array)
-	st = line_array.index("#{station}").to_i
-	park_st =line_array.index("park st").to_i
-	(st - park_st).abs
-end
-
-start = dist(start_station, start_line_array)
-ending = dist(end_station, end_line_array)
-
-puts (start + ending)
 
 
