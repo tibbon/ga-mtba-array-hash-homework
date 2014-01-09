@@ -15,7 +15,7 @@ def input_start_line
 end
 
 # get user input for start station
-def input_start_station
+def input_start_station(red_line_array, orange_line_array, green_line_array)
 	puts "What station are you starting at?\n(red line: #{red_line_array.join(", ")})\n(orange line: #{orange_line_array.join(", ")})\n(green line: #{green_line_array.join(", ")})"
 	gets.chomp
 end
@@ -27,16 +27,16 @@ def input_end_line
 end
 
 # get user input for end station
-def input_end_station
+def input_end_station(red_line_array, orange_line_array, green_line_array)
 	puts "What station are you getting off at?\n(red line: #{red_line_array.join(", ")})\n(orange line: #{orange_line_array.join(", ")})\n(green line: #{green_line_array.join(", ")})"
 	gets.chomp
 end
 
 # assign user input to variables
 start_line = input_start_line
-start_station = input_start_station
-end_line = input_end_station
-end_station = input_end_station
+start_station = input_start_station(red_line_array, orange_line_array, green_line_array)
+end_line = input_end_line
+end_station = input_end_station(red_line_array, orange_line_array, green_line_array)
 
 # GOAL: PRINT TOTAL NUMBER OF STOPS FOR EACH TRIP
 
