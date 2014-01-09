@@ -9,7 +9,7 @@ green_line_array = ["haymarket", "gov't center", "park st", "boylston", "arlingt
 
 the_subway = {red_line: red_line_array, orange_line: orange_line_array, green_line: green_line_array}
 
-# get user input for the start line
+# get user input for the start line and return start line array
 def input_start_line(red_line_array, orange_line_array, green_line_array)
 	puts "What line are you starting on? (red, orange, green)"
 	input = gets.chomp
@@ -25,13 +25,13 @@ def input_start_line(red_line_array, orange_line_array, green_line_array)
 	end
 end
 
-# get user input for start station
+# get user input for start station, return station name
 def input_start_station(red_line_array, orange_line_array, green_line_array)
 	puts "What station are you starting at?\n(red line: #{red_line_array.join(", ")})\n(orange line: #{orange_line_array.join(", ")})\n(green line: #{green_line_array.join(", ")})"
 	gets.chomp
 end
 
-# get user input for end line
+# get user input for end line, return end line array
 def input_end_line(red_line_array, orange_line_array, green_line_array)
 	puts "What line are you going to? (red, orange, green)"
 	input = gets.chomp
