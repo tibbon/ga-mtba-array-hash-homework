@@ -10,7 +10,7 @@
 and stop that user is getting off at and **prints the total number of stops for the trip**.
 - There are 3 subway lines:
   - The Red line has the following stops: south station, park st, kendall, central, harvard, porter, davis, alewife
-  - The Green line has the following stops: haymarket, government center, park st, bolyston, arlington, copley 
+  - The Green line has the following stops: haymarket, government center, park st, bolyston, arlington, copley
   - The Orange line has the following stops:  north station, haymarket, park st, state, downtown crossing, chinatown, back bay, forest hills
   - All 3 subway lines intersect at *park st*, but there are no other intersection points. Some of this MBTA is fictionalized. Haymarket does not connect the orange/green lines.
 - Do a Pull Request to turn in your homework
