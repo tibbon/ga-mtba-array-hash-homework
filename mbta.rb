@@ -16,7 +16,7 @@ end
 
 # get user input for start station
 def input_start_station
-	puts "What station are you starting at?\n(red line: #{red_line.join(", ")})\n(orange line: #{orange_line.join(", ")})\n(green line: #{green_line.join(", ")})"
+	puts "What station are you starting at?\n(red line: #{red_line_array.join(", ")})\n(orange line: #{orange_line_array.join(", ")})\n(green line: #{green_line_array.join(", ")})"
 	gets.chomp
 end
 
@@ -28,7 +28,7 @@ end
 
 # get user input for end station
 def input_end_station
-	puts "What station are you getting off at?\n(red line: #{red_line.join(", ")})\n(orange line: #{orange_line.join(", ")})\n(green line: #{green_line.join(", ")})"
+	puts "What station are you getting off at?\n(red line: #{red_line_array.join(", ")})\n(orange line: #{orange_line_array.join(", ")})\n(green line: #{green_line_array.join(", ")})"
 	gets.chomp
 end
 
@@ -55,7 +55,7 @@ end
 
 =end
 
-start_station.index("start_station")
+puts start_line.index("start_station")
 
 
 
