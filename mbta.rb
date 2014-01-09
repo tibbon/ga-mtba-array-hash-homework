@@ -1,14 +1,8 @@
-# for any "prompt", return the user's input
-def get_input(prompt)
-	puts prompt
-	gets.chomp # becomes returned value
-end
+red_line_list = ["alewife", "davis", "porter", "harvard", "central", "kendall", "park st", "south station"]
+orange_line_list = ["north station", "haymarket", "park st", "downtown crossing", "chinatown", "back bay", "forest hills"]
+green_line_list = ["haymarket", "gov't center", "park st", "boylston", "arlington", "copley"]
 
-red_line = ["alewife", "davis", "porter", "harvard", "central", "kendall", "park st", "south station"]
-orange_line = ["north station", "haymarket", "park st", "downtown crossing", "chinatown", "back bay", "forest hills"]
-green_line = ["haymarket", "gov't center", "park st", "boylston", "arlington", "copley"]
-
-the_subway = {red_line: red_line, orange_line: orange_line, green_line: green_line}
+the_subway = {red_line: red_line_list, orange_line: orange_line_list, green_line: green_line_list}
 
 
 def input_start_line
