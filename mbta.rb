@@ -1,10 +1,11 @@
 # define each subway line as an array of stations
 
 red_line_array = ["alewife", "davis", "porter", "harvard", "central", "kendall", "park st", "south station"]
-orange_line_array = ["north station", "haymarket", "park st", "downtown crossing", "chinatown", "back bay", "forest hills"]
+orange_line_array = ["north station", "haymarket", "park st", "state", "downtown crossing", "chinatown", "back bay", "forest hills"]
 green_line_array = ["haymarket", "gov't center", "park st", "boylston", "arlington", "copley"]
 
 # define the subway as a hash, with key = line and value = array of stations on the line
+# this ended up unnecessary - i just used the arrays
 
 the_subway = {red_line: red_line_array, orange_line: orange_line_array, green_line: green_line_array}
 
@@ -53,6 +54,19 @@ def input_end_station(red_line_array, orange_line_array, green_line_array)
 	gets.chomp
 end
 
+# calculate number of stop on the trip
+def calculate_number_of_stops(start_line_array, end_line_array, start_station, end_station)
+
+	# if the journey is on a single line
+	if start_line_array == end_line_array
+		(end_line_array.index(end_station) - start_line_array.index(start_station)).abs
+	# if the journey is on two lines, transfer at park st
+	else
+		stops_before_transfer = (start_line_array.index("park st") - start_line_array.index(start_station)).abs
+		stops_after_transfer = (end_line_array.index("park st") - end_line_array.index(end_station)).abs
+		stops_before_transfer + stops_after_transfer
+	end
+end
 
 # assign user input to variables
 
@@ -64,53 +78,10 @@ end_line_array = input_end_line(red_line_array, orange_line_array, green_line_ar
 
 end_station = input_end_station(red_line_array, orange_line_array, green_line_array)
 
-# GOAL: PRINT TOTAL NUMBER OF STOPS FOR EACH TRIP
 
-puts ""
-puts "The start line is #{start_line_array}"
-puts "The start station is #{start_station}"
-puts "The array index of the start station is #{start_line_array.index(start_station)}"
-puts ""
-puts "The end line is #{end_line_array}"
-puts "The end station is #{end_station}"
-puts "The array index of the end station is #{end_line_array.index(end_station)}"
-puts ""
-puts "the aend!"
-puts ""
-
-def calculate_number_of_stops(start_line_array, end_line_array, start_station, end_station)
-
-	if start_line_array == end_line_array
-		(end_line_array.index(end_station) - start_line_array.index(start_station)).abs
-	else
-		"start and end lines not same"
-	end
-
-end
+# perform the calculation and print result
 
 number_of_stops = calculate_number_of_stops(start_line_array, end_line_array, start_station, end_station)
-puts number_of_stops
 
+puts "The number of stops is #{number_of_stops}"
 
-
-
-=begin
-
-general idea:
-if start_line and end_line are the same
-	then calculate (position of end_station - position of start_station)
-else
-	find the position of park st
-	calculate (position of park st - position of start_station)
-	calculate (position of park st - position of end_station)
-	add them together
-	maybe subtract 1?
-end
-
-=end
-
-
-
-
-
-# rewrite whole subway as 6 joined lines (e.g. red to green one way, red to green the other way, etc.)?
