@@ -119,32 +119,6 @@ def route_display(city, finished_route)
   puts "*** TOTAL STOPS: #{total_stops} ***"
 end
 
-# def route_display(city, finished_route)
-#   total_stops = 0
-#   puts "\n\n*** FINISHED ROUTE ***"
-
-#   (0..(finished_route.length - 2)).each do |index|
-#     i_am = finished_route[index] # Remember these are [:line, stop]
-#     im_going = finished_route[index + 1]
-
-#     puts "**********************"
-
-#     if i_am[1] == im_going[1] # Same location (hence transfer required)
-#       puts " Transfer from #{i_am[0].to_s.capitalize} Line to #{im_going[0].to_s.capitalize} Line"
-#       puts " At #{i_am[1]}"
-#       puts " Stops: (XFER)"
-#     else # Different location (but same line because of how finished_route works)
-#       puts " Take #{i_am[0].to_s.capitalize} Line"
-#       puts " From #{i_am[1]} to #{im_going[1]}"
-#       # Long code that just subtracts the relevant indicies to find stops (same lines)
-#       num_stops = (city[i_am[0]].index(i_am[1]) - city[im_going[0]].index(im_going[1])).abs
-#       puts " Stops: #{num_stops}"
-#       total_stops += num_stops
-#     end
-#   end
-#   puts "*** TOTAL STOPS: #{total_stops} ***"
-# end
-
 def plan_a_trip(city)
   new_trip = construct_travel_array(city) # Builds array of user's desired start/end
   new_route = plan_route(city, new_trip) # Calculate the required route
