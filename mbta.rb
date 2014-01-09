@@ -78,14 +78,18 @@ puts ""
 puts "the aend!"
 puts ""
 
+def calculate_number_of_stops(start_line_array, end_line_array, start_station, end_station)
 
-# def calculate_number_of_stops(local vars)
+	if start_line_array == end_line_array
+		(end_line_array.index(end_station) - start_line_array.index(start_station)).abs
+	else
+		"start and end lines not same"
+	end
 
-# 	if start_line == end_line
+end
 
-
-
-# end
+number_of_stops = calculate_number_of_stops(start_line_array, end_line_array, start_station, end_station)
+puts number_of_stops
 
 
 
